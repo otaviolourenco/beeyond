@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		545AC0452CD8356E008F4DEE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 545AC0442CD8356E008F4DEE /* FirebaseAuth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		547C3A512CD8078400F59656 /* beeyond.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeyond.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545AC0452CD8356E008F4DEE /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = beeyond;
 			packageProductDependencies = (
+				545AC0442CD8356E008F4DEE /* FirebaseAuth */,
 			);
 			productName = beeyond;
 			productReference = 547C3A512CD8078400F59656 /* beeyond.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 547C3A482CD8078400F59656;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				545AC0432CD8356E008F4DEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 547C3A522CD8078400F59656 /* Products */;
 			projectDirPath = "";
@@ -324,6 +333,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		545AC0432CD8356E008F4DEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		545AC0442CD8356E008F4DEE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 545AC0432CD8356E008F4DEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 547C3A492CD8078400F59656 /* Project object */;
 }

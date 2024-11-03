@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var authViewModel = AuthViewModel()
+    
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+                    if let user = authViewModel.user {
+                        Text("Olá, \(user.email ?? "Usuário")!")
+                    } else {
+                        Text("Por favor, faça login.")
+                            SignInView()
+                                .environmentObject(authViewModel)
+                    }
+                }
+        
+
     }
 }
 
