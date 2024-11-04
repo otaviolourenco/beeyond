@@ -13,17 +13,24 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-                    if let user = authViewModel.user {
-                        Text("Olá, \(user.email ?? "Usuário")!")
-                    } else {
-                        Text("Por favor, faça login.")
-                            SignInView()
-                                .environmentObject(authViewModel)
-                    }
+        NavigationStack{
+            VStack {
+                if let user = authViewModel.user {
+                    Text("Hello, \(user.email ?? "User")!")
+                    Button(action: {
+                        authViewModel.signOut()
+                    }, label: {
+                        Text("Logout")
+                    })
+                } else {
+                    Text("Please, login in your account.")
+                        SignInView()
+                            .environmentObject(authViewModel)
+                    Text("Don't have an account yet?" )
+                    NavigationLink("Sign Up!", destination: SingUpView().environmentObject(authViewModel) )
                 }
-        
-
+            }
+        }
     }
 }
 

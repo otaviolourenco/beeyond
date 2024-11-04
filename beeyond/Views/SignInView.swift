@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State private var email = ""
-    @State private var password = ""
+
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
         VStack {
-            TextField("Email", text: $email)
+            TextField("E-mail", text: $authViewModel.email)
                 .textFieldStyle(.roundedBorder)
                 .textInputAutocapitalization(.never)
-            SecureField("Password", text: $password)
+            SecureField("Password", text: $authViewModel.password)
                 .textFieldStyle(.roundedBorder)
             Button("Sign In") {
-                authViewModel.signIn(email: email, password: password) { success, error in
+                authViewModel.signIn(email: authViewModel.email, password: authViewModel.password) { success, error in
                     if let error = error {
                         print("Error: \(error)")
                     }
@@ -34,4 +33,5 @@ struct SignInView: View {
 
 #Preview {
     SignInView()
+        .environmentObject(AuthViewModel())
 }
